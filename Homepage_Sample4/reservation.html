@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>In Days Flower</title>
+<link rel="icon" href="icon.ico" type="image/x-icon">
+<script src="https://kit.fontawesome.com/c47106c6a7.js" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="css/sub.css">
+<style>
+/*데이트 피커 : 입력창에 마우스를 클릭하면 날짜를 선택할 수 있게 하는 위젯*/
+.container {
+    width: 500px;
+    height: 700px;
+    padding: 20px;
+    margin: auto;
+    background: #eeeeee;
+    position: absolute;
+    /* text-align: center; */
+    color: rgb(73, 73, 73);
+  }
+  #content{
+      position: relative;
+      /* top: 680px;
+      right: 270px; */
+      border: 1px solid #eeeeee;
+      padding-left: 220px;
+      padding-right: 160px;
+      padding-bottom: 100px;
+      background-color: #eeeeee;
+  }
+  main div{
+      display: inline-block;
+  }
+  #res_img{
+      position: relative;
+      /* margin-right: 40px; */
+  }
+  #res_img img{
+      width: 500px;
+      height: 700px;
+  }
+  #res_box{
+      margin-left: 20%;
+      margin-top: 5%;
+      /* padding-bottom: 600px; */
+  }
+  /* .container h2{
+      text-align: center;
+  } */
+  select{
+      width: 130px;
+  }
+  form p{
+      font-weight: bold;
+  }
+  #button{
+    width: 250px;
+    height: 40px;
+     border-radius: 20px;
+     border-color: grey;
+     background-color: rgb(255, 234, 47);
+     position: relative;
+     left: 24%;
+  }
+
+</style>
+<script>
+$(document).ready(function () {
+    $("#datepicker").datepicker();
+});
+
+$("datepicker").datepicker({
+    dateFormat:'yy-mm-dd',
+    onSelect:function(dateText){
+        //이곳에 이벤트 처리하시면 돼요.. dateText는 선택된 날짜랍니다!!
+    }
+})
+
+</script>
+</head>	
+<body>
+    <header>
+        <div class="inner">
+            <h1><a href="index.html">In Days Flower</a></h1>
+
+            <ul id="gnb">
+                <li><a href="Bouquet.html">Bouquet</a></li>
+                <li><a href="basket.html">Flower basket</a></li>
+                <li><a href="plants.html">Plants</a></li>
+                <li><a href="reservation.html">Reservation</a></li>
+                <li><a href="location.html">LOCATION</a></li>
+            </ul>
+
+            <ul class="util">
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Help</a></li>
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Join</a></li>
+                <li><a href="#">Sitemap</a></li>
+            </ul>
+        </div>
+    </header>
+    <main>
+        <section id="res_box">
+            <div id="res_img">
+                <img src="img/res_img.png">
+            </div>
+            
+                <div class="container">
+                    <h2>예약상세</h2><br>
+                    <form>
+                        <p>예약자 성함</p>
+                        <input type="text"><br>
+                        <p>예약자 전화번호</p>
+                        <input class="number" type="text"><br>
+                        
+                        <p>종류 선택</p>
+                        <select>
+                            <option>꽃다발</option>
+                            <option>꽃바구니</option>
+                            <option>식물</option>
+                        </select>
+
+                        
+                        <select>
+                            <option>1번</option>
+                            <option>2번</option>
+                            <option>3번</option>
+                            <option>4번</option>
+                            <option>5번</option>
+                            <option>6번</option>
+                            <option>7번</option>
+                            <option>8번</option>
+                            <option>9번</option>
+                            <option>10번</option>
+                            <option>11번</option>
+                            <option>12번</option>
+                        </select><br><br>
+
+                        <p>선물 카드 작성 내용</p>
+                        <textarea rows="2" cols="65"></textarea><br>
+                        
+                        <p>픽업 날짜</p><input id="datepicker"> <br><br>
+                        <p>[ 배송할 경우 아래내용을 작성해주세요 ]</p>
+                        <p>배송될 날짜</p> <input id="datepicker"> <br>
+                        <p>받으시는분 성함</p> <input type="text"><br>
+                        <p>받으시는분 연락처</p> <input type="text"><br>
+                        <p>배송 주소</p><textarea rows="2" cols="65"></textarea><br><br>
+
+                        <button id="button">예약하기</button>
+
+                    </form>
+                </div>
+
+                <div id="content">
+                    <h4>[주문전]</h4>
+                    <p>1. 꽃 시장 및 계절에 따라 꽃의 종류가 조금씩 달라질 수 있습니다.</p>
+                    <p>2.주문 전 원하시는 특정 꽃, 색감, 포장지 등이 있으시면 미리 말씀해주세요.</p>
+
+                    <h4>[주문 방법]</h4>
+                    <p>꽃이 필요하신 날짜의 2-3일 전에 예약주시면 더욱 만족감있는 꽃선물을 선사해드립니다.</p>
+                    <p>예약금 20,000은 예약시 아래계좌로 입금해주시면됩니다. </p>
+                    <p>예약금 입금 확인 후 꽃 제작이 진행됩니다. 최종 결제는 픽업시에 해주시면됩니다.</p>
+                    <p>계좌번호 : 우리은행 (1004-303-148294)</p>
+
+                    <h4>[배송/픽업 방법]</h4>
+                    <p>픽업 : 예약시간에 방문해주시면 됩니다.</p>
+                    <p>배송 : 받으실 날짜와 시간, 받으시는분 성함, 연락처, 주소를 예약란에 함께 적어주세요.</p>
+                </div>
+            
+        </section>   
+            
+    </main>     
+
+    <footer>
+        <div class="inner">
+            <div class="upper">
+                <h1>In Days Flower</h1>
+                <ul>
+                    <li><a href="#">Policy</a></li>
+                    <li><a href="#">Terms</a></li>
+                    <li><a href="#">Family Site</a></li>
+                    <li><a href="#">Sitemap</a></li>
+                </ul>
+            </div>
+
+            <div class="lower">
+                <address>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, facere.<br>
+                    TEL : 031-111-1234 C.P : 010-1234-5678
+                </address>
+                <p>
+                    2021 In Days Flower &copy; copyright all right reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>  
+</html>

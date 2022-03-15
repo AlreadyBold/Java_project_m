@@ -1,0 +1,168 @@
+@charset 'utf-8';
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+* {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+ul,
+ol {
+	list-style: none;
+}
+a {
+	text-decoration: none;
+}
+
+/* header */
+header {
+	width: 100%;
+	border-bottom: 1px solid #ddd;
+}
+header .inner {
+	width: 1180px;
+	height: 120px;
+	margin: 0px auto;
+	position: relative; /*자식 absolute 요소의 기준점 설정*/
+}
+header .inner h1 {
+	position: absolute;
+	left: 0px;
+	bottom: 10px;
+}
+header .inner h1 a {
+	font: bold 24px/1 "arial";
+	color: #444;
+}
+header .inner .util {
+	position: absolute;
+	top: 20px;
+	right: 30px;
+}
+header .inner .util li {
+	float: left;
+}
+header .inner .util li a {
+	display: block;
+	font: 12px/1 "arial";
+	color: #999;
+	padding: 0px 10px;
+}
+header .inner #gnb {
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+}
+header .inner #gnb li {
+	float: left;
+}
+header .inner #gnb li a {
+	display: block; /*인라인 요소는 block설정하여 크기를 조절가능*/
+	font: bold 15px/1 "arial";
+	color: #555;
+	padding: 20px 40px;
+	transition: all 0.5s;
+}
+header .inner #gnb li a:hover {
+	background: #555;
+	color: #fff;
+}
+.clear {
+    clear:both;
+}
+main section{
+    margin-bottom: 200px;
+}
+.ex{
+    display: inline-block;
+    margin-left: 140px;
+}
+.ex_list img{
+    width: 300px;
+    height: 200px;
+    border-radius: 10px;
+}
+
+.ex_list img:hover{
+    opacity: 0.5;
+    content: '1월';
+}
+section h4{
+    border-bottom: solid 1px rgb(209, 209, 209);
+    padding-bottom: 30px;
+    margin-bottom: 10px;
+    margin-top: 80px;
+    /* text-align: center; */
+    font-size: 20px;
+    margin-left: 140px;
+    margin-right: 192px;
+    color: rgb(73, 73, 73);
+}
+.ex_list li{
+    padding-top: 10px;
+    text-align: center;
+}
+.subject{
+    font-size: 18px;
+    color: rgb(63, 63, 63);
+    font-weight: bold;
+}
+.content{
+    font-size: 13px;
+    color: grey;
+}
+/* footer */
+footer {
+	width: 100%;
+	background: #333; 
+	padding: 100px 0px;
+	border-top: 1px solid #888;
+}
+footer .inner {
+	width: 1180px;
+	margin: 0px auto;
+}
+footer .inner .upper {
+	width: 100%;
+	border-bottom: 1px solid #777;
+	padding-bottom: 20px;
+}
+footer .inner .upper::after {
+	/*상단 영역 float해제*/
+	content: "";
+	display: block;
+	clear: both;
+}
+footer .inner .upper h1 {
+	float: left;
+	font: bold 24px/1 "arial";
+	color: #666;
+}
+footer .inner .upper ul {
+	float: right;
+}
+footer .inner .upper ul li {
+	float: left;
+	margin-left: 20px;
+}
+footer .inner .upper ul li a {
+	font: bold 14px/1 "arial";
+	color: #666;
+}
+footer .inner .lower {
+	width: 100%;
+	padding-top: 20px;
+}
+footer .inner .lower address {
+	width: 100%;
+	font: 12px/1.3 "arial";
+	color: #777;
+	margin-bottom: 20px;
+}
+footer .inner .lower p {
+	width: 100%;
+	font: 12px/1 "arial";
+	color: #777;
+}
+
+

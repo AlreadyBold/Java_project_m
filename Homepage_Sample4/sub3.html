@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlowerShop</title>
+    <link rel="icon" href="icon.ico" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/c47106c6a7.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <link rel="stylesheet" href="css/sub.css">
+    <script src="js/ie.js"></script>
+    <style>
+        /* 이미지 슬라이더 : 양쪽 버튼을 클릭하면 이미지가 슬라이드 */
+        * {
+          margin: 0;
+          padding: 0;
+        }
+        li {
+            list-style-type: none;
+        }
+        #slider {
+          position: relative;
+          overflow: hidden;
+          margin: 50px auto 0 auto;
+          border-radius: 20px;
+          margin-bottom: 100px;
+        }
+        #slider ul {
+          position: relative;
+        }
+        #slider ul li {
+          position: relative;
+          float: left;
+          width: 400px;
+          height: 400px;
+        }
+        a.prev, a.next {
+          position: absolute;
+          top: 40%;
+          z-index: 999;
+          display: block;
+          padding: 4% 3%;
+          background: #6e6e6e;
+          color: #fff;
+          text-decoration: none;
+          opacity: 0.6;
+          cursor: pointer;
+        }
+        a.next {
+          right: 0;
+        }   
+        #slide_img img{
+            width: 400px;
+            height: 400px;
+            border-radius: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        .date{
+            position: absolute;
+            top:80%;
+            left:50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            color: white;
+        }
+        #slider_subject{
+            text-align: center;
+            padding-top: 30px;
+        }
+        </style>
+        <script>
+        $(document).ready(function () {
+              var slideCount = $("#slider ul li").length; //li요소의 개수
+              var slideWidth = $("#slider ul li").width();  //li요소의 너비
+              var slideHeight = $("#slider ul li").height();  //li요소의 높이 
+              var slideTotalWidth = slideCount * slideWidth;  // 다섯개의 슬라이드 너비를 다 더한 값 
+            
+              $("#slider").css({ width: slideWidth, height: slideHeight });     //div요소의 너비와 높이를 각각 slideWidth와 slideHeight 로 설정
+              $("#slider ul").css({ width: slideTotalWidth, marginLeft: - slideWidth });   //ul요소 왼쪽 마진을 -slideWidth로 설정한 다음. 
+              $("#slider ul li:last-child").prependTo("#slider ul");  // ul요소의 제일 왼쪽에 마지막 슬라이드 이미지를 삽입한다. 
+                                                                                            // 이렇게 하면 첫 번째 슬라이드이미지에서 왼쪽 버튼을 
+                                                                                            // 클릭했을때 마지막 슬라이드 이미지로 이동할 수 있다.
+              
+              function moveLeft() {
+                  $("#slider ul").animate({
+                      left: + slideWidth
+                  }, 300, function () {
+                      $("#slider ul li:last-child").prependTo("#slider ul");
+                      $("#slider ul").css("left", "0");
+                  });
+              };
+              /*moveLeft() 함수는 슬라이드 이미지를 왼쪽으로 이동시킴. 
+              $("#slider ul li:last-child").prependTo("#slider ul"); 는 <ul>요소의 제일 왼쪽에 마지막 슬라이드 이미지를 삽입함.
+                그리고 <ul>요소의 left속성을 0으로 초기화함 
+              */
+        
+              function moveRight() {
+                  $("#slider ul").animate({
+                      left: - slideWidth
+                  }, 300, function () {
+                      $("#slider ul li:first-child").appendTo("#slider ul");
+                      $("#slider ul").css("left", "0");
+                  });
+              };
+              /*moveRight()는 이미지 슬라이드를 오른쪽으로 이동시키는 역할
+              $("#slider ul li:first-child").appendTo("#slider ul"); 는 <ul>요소의 제일 뒤에 첫번째 슬라이드 이미지를 추가함 
+              */
+        
+              $("a.prev").click(function () {
+                  moveLeft();
+              });
+          
+              $("a.next").click(function () {
+                  moveRight();
+              });
+        });      
+        </script>
+
+</head>
+
+<body>
+
+    <header>
+        <div class="inner">
+            <h1><a href="index.html">FlowerShop</a></h1>
+
+            <ul id="gnb">
+                <li><a href="sub.html">Monthly</a></li>
+                <li><a href="sub2.html">Seasonal</a></li>
+                <li><a href="sub3.html">My birth</a></li>
+                <li><a href="sub4.html">Reservation</a></li>
+                <li><a href="sub5.html">LOCATION</a></li>
+            </ul>
+
+            <ul class="util">
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Help</a></li>
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Join</a></li>
+                <li><a href="#">Sitemap</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <h3 id="slider_subject">1월</h3>
+        <div id="slider">
+            <a href="#" class="next">>></a>
+            <a href="#" class="prev"><</a>
+            <ul id="slide_img">
+              <li><img src="img/birth_img/1_1.PNG"><h3 class="date">day1</h3></li>
+              <li><img src="img/birth_img/1_2.PNG"><h3 class="date">day2</h3></li>
+              <li><img src="img/birth_img/1_3.PNG"><h3 class="date">day3</h3></li>
+              <li><img src="img/birth_img/1_4.PNG"><h3 class="date">day4</h3></li>
+              <li><img src="img/birth_img/1_5.PNG"><h3 class="date">day5</h3></li>
+              <li><img src="img/birth_img/1_6.PNG"><h3 class="date">day6</h3></li>
+              <li><img src="img/birth_img/1_7.PNG"><h3 class="date">day7</h3></li>
+              <li><img src="img/birth_img/1_8.PNG"><h3 class="date">day8</h3></li>
+              <li><img src="img/birth_img/1_9.PNG"><h3 class="date">day9</h3></li>
+              <li><img src="img/birth_img/1_10.PNG"><h3 class="date">day10</h3></li>
+              <li><img src="img/birth_img/1_11.PNG"><h3 class="date">day11</h3></li>
+              <li><img src="img/birth_img/1_12.PNG"><h3 class="date">day12</h3></li>
+              <li><img src="img/birth_img/1_13.PNG"><h3 class="date">day13</h3></li>
+              <li><img src="img/birth_img/1_14.PNG"><h3 class="date">day14</h3></li>
+              <li><img src="img/birth_img/1_15.PNG"><h3 class="date">day15</h3></li>
+              <li><img src="img/birth_img/1_16.PNG"><h3 class="date">day16</h3></li>
+              <li><img src="img/birth_img/1_17.PNG"><h3 class="date">day17</h3></li>
+              <li><img src="img/birth_img/1_18.PNG"><h3 class="date">day18</h3></li>
+              <li><img src="img/birth_img/1_19.PNG"><h3 class="date">day19</h3></li>
+              <li><img src="img/birth_img/1_20.PNG"><h3 class="date">day20</h3></li>
+              <li><img src="img/birth_img/1_21.PNG"><h3 class="date">day21</h3></li>
+              <li><img src="img/birth_img/1_22.PNG"><h3 class="date">day22</h3></li>
+              <li><img src="img/birth_img/1_23.PNG"><h3 class="date">day23</h3></li>
+              <li><img src="img/birth_img/1_24.PNG"><h3 class="date">day24</h3></li>
+              <li><img src="img/birth_img/1_25.PNG"><h3 class="date">day25</h3></li>
+              <li><img src="img/birth_img/1_26.PNG"><h3 class="date">day26</h3></li>
+              <li><img src="img/birth_img/1_27.PNG"><h3 class="date">day27</h3></li>
+              <li><img src="img/birth_img/1_28.PNG"><h3 class="date">day28</h3></li>
+              <li><img src="img/birth_img/1_29.PNG"><h3 class="date">day29</h3></li>
+              <li><img src="img/birth_img/1_30.PNG"><h3 class="date">day30</h3></li>
+            </ul>  
+          </div>
+    </main>
+
+    <footer>
+        <div class="inner">
+            <div class="upper">
+                <h1>FlowerShop</h1>
+                <ul>
+                    <li><a href="#">Policy</a></li>
+                    <li><a href="#">Terms</a></li>
+                    <li><a href="#">Family Site</a></li>
+                    <li><a href="#">Sitemap</a></li>
+                </ul>
+            </div>
+
+            <div class="lower">
+                <address>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, facere.<br>
+                    TEL : 031-111-1234 C.P : 010-1234-5678
+                </address>
+                <p>
+                    2021 YesJeanFR &copy; copyright all right reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+</body>
+
+</html>
